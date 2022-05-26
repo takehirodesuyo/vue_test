@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: vue_web
+    build: ./docker/web
+    ports:
+      - ${IN_PORT}:${OUT_PORT}
+    privileged: true
+    volumes:
+      - ${SEVICE_DIR}:/app
+    tty: true
+    stdin_open: true
+    command: /bin/sh
